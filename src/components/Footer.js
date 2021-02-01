@@ -34,7 +34,7 @@ function Footer() {
                 </span>
             </div>
 
-            <div class="attribution font-alata">
+            <div className="attribution font-alata">
                 Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
                 Coded by <a href="#">John Lorenze</a>.
             </div>

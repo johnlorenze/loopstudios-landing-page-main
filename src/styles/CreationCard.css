@@ -12,7 +12,6 @@
     color: hsl(0, 0%, 0%);
 }
 
-
 .creationCard:after {
     content: '';
     position: absolute;
@@ -36,10 +35,6 @@
 .creationCard__image {
     display: block;
     transition: 0.2s ease-in-out;
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 256px;
-    height: 450px;
 }
 
 .creationCard:hover > .creationCard__image {
@@ -62,10 +57,7 @@
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     .creationCard__image {
-        background-size: cover;
-        background-position-y: 8%;
-        width: 315px;
-        height: 110px;
+        width: 100%;
     }
 
     .creationCard > span {

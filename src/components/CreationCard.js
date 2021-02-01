@@ -5,7 +5,11 @@ import Newline from './Newline';
 function CreationCard({ image, title }) {
     return (
         <div className="creationCard">
-            <div className="creationCard__image" style={{ backgroundImage: `url(${image})` }}></div>
+            <img
+                className="creationCard__image"
+                src={image}
+                alt="Loading..."
+            />
             <Newline text={title} />
         </div>
     )

@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react';
+import React from 'react';
 import '../styles/Main.css';
 import CreationCard from './CreationCard';
 import imageInteractive from '../images/desktop/image-interactive.jpg';
@@ -20,35 +20,11 @@ import pocketBorealisMobile from '../images/mobile/image-pocket-borealis.jpg';
 import curiosityMobile from '../images/mobile/image-curiosity.jpg';
 import fisheyeMobile from '../images/mobile/image-fisheye.jpg';
 
-function useMediaQuery() {
-    const [screenSize, setScreenSize] = useState([0, 0]);
-
-    useLayoutEffect(() => {
-        function updateScreenSize() {
-            setScreenSize([window.innerWidth, window.innerHeight]);
-        }
-        window.addEventListener("resize", updateScreenSize);
-        updateScreenSize();
-        return () => window.removeEventListener("resize", updateScreenSize);
-    }, []);
-
-    return screenSize;
-}
-
-function Main() {
-    const [width] = useMediaQuery();
-    let mobile = false;
-
-    if (width <= 600) {
-        mobile = true;
-    } else {
-        mobile = false;
-    }
-
+function Main({ isMobile }) {
     return (
-        <div className="main">
+        <div className="main" id="main">
             <div className="main__top">
-                <img src={mobile ? imageInteractive : imageInteractiveMobile} alt="Loading..." />
+                <img src={isMobile ? imageInteractiveMobile : imageInteractive} alt="Loading..." />
                 <div className="main__topContent">
                     <h1 className="font-josefin">The leader in interactive VR</h1>
                     <p className="font-alata">
@@ -64,14 +40,14 @@ function Main() {
                 <h1 className="font-josefin">Our creations</h1>
                 <div className="main__bottomHeaderBtn font-alata">See all</div>
                 <div className="main__bottomCreation">
-                    <CreationCard image={mobile ? deepEarthMobile : deepEarth} title="Deep earth" />
-                    <CreationCard image={mobile ? nightArcadeMobile : nightArcade} title="Night arcade" />
-                    <CreationCard image={mobile ? soccerTeamMobile : soccerTeam} title="Soccer team VR" />
-                    <CreationCard image={mobile ? gridMobile : grid} title="The grid" />
-                    <CreationCard image={mobile ? fromAboveMobile : fromAbove} title="From up above VR" />
-                    <CreationCard image={mobile ? pocketBorealisMobile : pocketBorealis} title="Pocket borealis" />
-                    <CreationCard image={mobile ? curiosityMobile : curiosity} title="The curiosity" />
-                    <CreationCard image={mobile ? fisheyeMobile : fisheye} title="Make it fisheye" />
+                    <CreationCard image={isMobile ? deepEarthMobile : deepEarth} title="Deep earth" />
+                    <CreationCard image={isMobile ? nightArcadeMobile : nightArcade} title="Night arcade" />
+                    <CreationCard image={isMobile ? soccerTeamMobile : soccerTeam} title="Soccer team VR" />
+                    <CreationCard image={isMobile ? gridMobile : grid} title="The grid" />
+                    <CreationCard image={isMobile ? fromAboveMobile : fromAbove} title="From up above VR" />
+                    <CreationCard image={isMobile ? pocketBorealisMobile : pocketBorealis} title="Pocket borealis" />
+                    <CreationCard image={isMobile ? curiosityMobile : curiosity} title="The curiosity" />
+                    <CreationCard image={isMobile ? fisheyeMobile : fisheye} title="Make it fisheye" />
                 </div>
             </div>
         </div >

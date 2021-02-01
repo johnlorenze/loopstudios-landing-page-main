@@ -126,12 +126,37 @@
         order: 4;
     }
 
-    .footer > :nth-child(3) {
-        background-color: red;
-    }
-
     .attribution {
         margin-top: 20px;
         padding-bottom: 30px;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 991px) {
+    .footer {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .footer__infoLogo > img {
+        padding-top: 15px;
+    }
+
+    .footer__infoMenu {
+        padding-top: 6px;
+        font-size: small;
+    }
+
+    .footer__infoCopyright {
+        font-size: smaller;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) and (max-width: 1999px) {
+    .footer {
+        padding-left: 100px;
+        padding-right: 100px;
     }
 }

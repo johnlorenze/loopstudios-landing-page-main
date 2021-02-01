@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../styles/Header.css';
 import logo from '../images/logo.svg';
+import hero from '../images/desktop/image-hero.jpg';
+import heroMobile from '../images/mobile/image-hero.jpg';
 import hamburger from '../images/icon-hamburger.svg';
 import close from '../images/icon-close.svg';
 
-function Header() {
+function Header({ isMobile }) {
     const [isMenuOpen, setMenuIcon] = useState(false);
     const [icon, setIcon] = useState(hamburger);
     const [toggleOverlay, setOverlay] = useState("");
@@ -13,20 +15,26 @@ function Header() {
         setMenuIcon(false);
         setOverlay("");
         setIcon(hamburger);
-        document.querySelector("body").style.overflow = "auto";
+        document.body.style.overflow = "auto";
+        document.getElementById("main").style.backgroundColor = "white";
     }
 
     const setOpenMenu = () => {
         setMenuIcon(true);
         setOverlay("header__navbarToggle");
         setIcon(close);
-        document.querySelector("body").style.overflow = "hidden";
+        document.body.style.overflow = "hidden";
+        document.getElementById("main").style.backgroundColor = "black";
     }
 
     return (
         <div className="header">
-            <div className={`image-overlay ${toggleOverlay}`} >
-                <div className="header__background" />
+            <div className={`image-overlay ${toggleOverlay}`}>
+                <img
+                    className="header__background"
+                    src={isMobile ? heroMobile : hero}
+                    alt="Loading..."
+                />
             </div>
 
             <div className="header__nav">
